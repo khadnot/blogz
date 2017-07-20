@@ -2,10 +2,14 @@
 
 {% block content %}
 
-<h1 align="center">{{title}}</h1>
-<br />
+<h1>{{ blog.title }}</h1>
+
 <p>
-    {{body}}
+    {{ blog.body }}
+</p>
+
+<p class='attribution'>
+    Written by <a href='/?user={{ blog.owner }}'>{{ blog.owner }}</a>
 </p>
 
 {% endblock %}

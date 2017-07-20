@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1 align="center">Add a Blog Entry</h1>
-    <form action='/newpost' method='post'>
+    <form action='/newpost' method='post' novalidate>
         <table>
             <tr>
                 <td>
@@ -10,8 +10,8 @@
                         <div class='title'>
                             New Blog Title:
                         </div>
-                        <input type='text' name='title' value='{{title}}' />
-                        <span class='error'>{{title_error}}</span>
+                        <input type = 'text' name = 'title' value = {{ title }}>
+                        <p class='error'>{{ title_error }}</p>
                     </label>
                 </td>
             </tr>
@@ -21,8 +21,8 @@
                         <div class='body'>
                             New Blog Post:
                         </div>
-                        <textarea name='body' value='{{body}}' rows='4' cols='25'></textarea>
-                        <span class='error'>{{post_error}}</span>
+                        <textarea name='body' value={{ body }} rows='4' cols='25'></textarea>
+                        <p class='error'>{{ post_error }}</p>
                     </label>
                 </td>
             </tr>

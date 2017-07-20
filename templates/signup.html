@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Sign up</h1>
+<form method='POST' novalidate>
+    <label>Username:</label>
+    <input type='text' name='username' value={{username}}>
+    <p class='error'>
+        {{ username_error }}
+        {{ existing_user_error }}
+    </p>
+    <label>Password:</label>
+    <input type='password' name='password' value={{password}}>
+    <p class='error'>
+        {{ password_error }}
+    </p>
+    <label>Verify Password:</label>
+    <input type='password' name='verify' value={{verify}}>
+    <p class='error'>
+        {{ verify_error }}
+    </p>
+    <input type='submit' value='Submit'>
+</form>
+
+{% endblock %}

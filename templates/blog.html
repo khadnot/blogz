@@ -5,26 +5,34 @@
     <h1 align="center">Build a Blog</h1>
     {% if blogs|length == 0 %}
     <p>
-        No blog entries yet
+        No blog entries yet!
     </p>
+
     {% else %}
 
-        {% for post in blogs %}
-        <table>
-            <tr>
-                <td>
-                    <h1><a href='/blog?id={{post.id}}'>{{post.title}}</a></h1>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>
-                        {{post.body}}
-                    </p>
-                </td>
-            </tr>
-        </table>
-        {% endfor %}
+    {% for blog in blogs %}
+    <table>
+        <tr>
+            <td>
+                <h1><a href='/blog?id={{ blog.id }}'>{{ blog.title }}</a></h1>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    {{ blog.body }}
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class='attribution'>
+                    Written by <a href='/?user={{ blog.owner }}'>{{ blog.owner }}</a>
+                </p>
+            </td>
+        </tr>
+    </table>
+    {% endfor %}
 
     {% endif %}
 

@@ -1,28 +1,35 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        <a href='/'>Home</a> | <a href='/blog'>All Posts</a> | <a href='/newpost'>New Blog Post</a> | <a href='/logout'>Log Out</a>
+
         <title>Build-a-Blog</title>
-        <p>
-            <a href='/blog'>Main Blog Page</a>
-        </p>
-        <p>
-            <a href='/newpost'>New Blog Post</a>
-        </p>
 
         <style>
             .error {
                 color: red;
                 }
-            .title {
-                padding: 5px;
+            .flashes {
+                color: red;
             }
-            .entry {
-                padding: 5px;
+            .attribution {
+                font-size: 12px;
+                font-style: italic;
             }
         </style>
     </head>
 
 <body>
+
+    {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class=flashes>
+              {% for message in messages %}
+              <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+    {% endwith %}
 
     {% block content %}
     {% endblock %}
